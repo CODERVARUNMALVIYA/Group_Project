@@ -27,7 +27,7 @@ const AdminLoginForm = () => {
     try {
       // Dispatch the adminSignup action with form data (email and password)
       dispatch(adminSignin(formData))
-      navigate("/admin/products"); // Navigate to products page if signup is successful
+      navigate("/admin/form"); // Navigate to products page if signup is successful
     } catch (error) {
       console.error("Failed to signup admin. Error:", error);
       setErrorMessage("Failed to sign up. Please try again.");

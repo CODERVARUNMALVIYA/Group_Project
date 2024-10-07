@@ -5,7 +5,7 @@ import Offercard from './Offercard';
 import Seasonaloffer from './Seasonaloffer';
 import Cards from "./Cards";
 import Footer from './Footer';
-import axios from '../utils/Axios';
+import axios from '../utils/axios';
 
 const Home = ({ isLoggedIn, setIsLoggedIn }) => { // Receiving isLoggedIn and setIsLoggedIn as props
   const [data, setData] = useState('');

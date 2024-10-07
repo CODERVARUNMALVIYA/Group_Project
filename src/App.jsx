@@ -11,6 +11,7 @@ import { useState } from 'react';
 import AdminProducts from './AdminComponent/AdminProducts';
 import Order from './components/Order';
 import AddToCart from './components/AddToCart';
+import AdminSignup from './AdminComponent/AdminSignUp';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -20,18 +21,18 @@ const App = () => {
       <Routes>
         {/* Home route: passing isLoggedIn and setIsLoggedIn */}
         <Route path='/' element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
-
-        <Route path='/signup' element={<RegistrationForm setIsLoggedIn={setIsLoggedIn} />} />
-
-        <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} />} />
-
-        <Route path='/admin/form' element={<AddClothForm />} />
-        <Route path='/ForgetPassword' element={<ForgetPassword />} />
         <Route path='/profile' element={<UserProfile />} />
-        <Route path='/adminlogin' element={<AdminLoginForm />} />
-        <Route path='/admin/products' element={<AdminProducts />} />
+        <Route path='/signup' element={<RegistrationForm setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path='/ForgetPassword' element={<ForgetPassword />} />
+        <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path='/order' element={<Order />} />
         <Route path="/add-to-cart" element={<AddToCart />} />
+        
+        <Route path='/adminlogin' element={<AdminLoginForm />} />
+        <Route path='/admin/signup' element={<AdminSignup />} />
+        <Route path='/admin/products' element={<AdminProducts />} />
+        <Route path='/admin/form' element={<AddClothForm />} />
+      
       </Routes>
     </div>
   );

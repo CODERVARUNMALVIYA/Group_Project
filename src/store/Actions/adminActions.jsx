@@ -11,21 +11,47 @@ export const currentAdmin = () => async (dispatch, getState) => {
     }
 };
 
-export const adminSignin = (user) => async (dispatch, getState) => {
+export const adminSignin = (userData) => async (dispatch) => {
     try {
-       const response=  await axios.post("/admin/signup", user);
-       console.log(response);
-        dispatch(currentAdmin()); // Pass token and id to currentAdmin after signup
+        const response = await axios.post("/admin/signin", userData);
+
+        // Only dispatch serializable data
+        dispatch(saveAdmin(response.data));  // Dispatch response.data only
+
+        console.log("Signin successful", response.data);
     } catch (error) {
-        console.log("Error in signin");
+        console.error("Error during signin:", error);
+    }
+};
+export const adminSignup = (userData) => async (dispatch) => {
+    try {
+        const response = await axios.post('/admin/signup', userData);
+        dispatch(saveAdmin(response.data)); // Assuming you save admin data
+        console.log("Admin signup successful", response.data);
+    } catch (error) {
+        console.error("Error in admin signup", error);
     }
 };
 
-export const createCloth = (cloth) => async (dispatch, getState) => {
+
+export const createCloth = (clothData) => async (dispatch) => {
     try {
-        await axios.post("/admin/create-cloth", cloth);
-        console.log('bindaaaas');
+        const response = await axios.post("/admin/create-cloth", clothData);
+        console.log("Cloth added successfully", response.data);
+    
     } catch (error) {
-        console.log("chud gye guru")
-    }
-}
+        console.error("Error adding cloth:", error);
+    }
+};
+
+export const Product = () => async (dispatch) => {
+    try {
+        const response = await axios.get("/admin/create-cloth", clothData);
+        console.log("Cloth added successfully", response.data);
+    
+    } catch (error) {
+        console.error("Error adding cloth:", error);
+    }
+};
+
+

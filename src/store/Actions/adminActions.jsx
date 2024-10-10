@@ -33,25 +33,13 @@ export const adminSignup = (userData) => async (dispatch) => {
     }
 };
 
-
-export const createCloth = (clothData) => async (dispatch) => {
+export const createCloth = (cloth) => async (dispatch, getState) => {
     try {
-        const response = await axios.post("/admin/create-cloth", clothData);
-        console.log("Cloth added successfully", response.data);
-    
+        await axios.post("/admin/create-cloth", cloth);
+        console.log('bindaaaas');
     } catch (error) {
-        console.error("Error adding cloth:", error);
-    }
-};
-
-export const Product = () => async (dispatch) => {
-    try {
-        const response = await axios.get("/admin/create-cloth", clothData);
-        console.log("Cloth added successfully", response.data);
-    
-    } catch (error) {
-        console.error("Error adding cloth:", error);
-    }
-};
+        console.log("error")
+    }
+}
 
 
